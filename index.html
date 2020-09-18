@@ -8,8 +8,6 @@
                 font-family: "Consolas", "Ubuntu", sans-serif;
             }
 
-            
-
             #getter, #coun {
                 height: 30px;
                 margin: 0;
@@ -29,7 +27,7 @@
 
             @media only screen and (max-width: 600px) {
                 #getter:focus, #getter, #getter:hover {
-                    font-size: 14px;
+                    /* font-size: 14px; */
                     font-weight: bold;
                 }
             }
@@ -52,18 +50,22 @@
                 padding-top: 6px;
                 font-weight: 100;
             }
+
+
+
         </style>
 
     </head>
     <body>
         <span id = "pane">
-                <input id = "coun" value="IN" />
+            <input id = "coun" value="IN" />
             <button id  = "getter" onclick="main()">Get!</button>
         </span>
         
         <div id = "output">
 
         </div>
+        <img src="icon.png" alt="Sorry, Here a icon should have been here" />
         <script src="app.js"></script>
     </body>
 </html>
