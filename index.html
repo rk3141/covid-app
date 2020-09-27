@@ -4,6 +4,9 @@
         <title>TITLE TO BE DECIDED</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            * {
+                font-family: "Consolas", "Ubuntu", sans-serif;
+            }
             #output {
                 font-family: "Consolas", "Ubuntu", sans-serif;
             }
@@ -25,15 +28,26 @@
                 padding-right: 10px;
             }
 
+            .footer {
+                position: absolute;
+                margin-top: calc(100vh - 3rem);
+                z-index: 10;
+            }
+
             @media only screen and (max-width: 600px) {
                 #getter:focus, #getter, #getter:hover {
                     /* font-size: 14px; */
                     font-weight: bold;
                 }
+
+                .footer {
+                    position: absolute;
+                    margin-top: calc(100vh - 7rem);
+                    z-index: 10;
+                }
             }
 
             #coun {
-                font-family: "Consolas", "Ubuntu", sans-serif;
                 border-width: 2px;
                 border-right-color:  #333;
                 border-left-color:   #333;
@@ -51,21 +65,40 @@
                 font-weight: 100;
             }
 
+            body * {
+                z-index: 0;
+            }
 
+            #output {
+                margin-top: 50px;
+                position: absolute;
+                z-index: 10;
+            }
 
+            #pane {
+                position: absolute;
+                z-index: 10;
+            }
+
+            
         </style>
 
     </head>
     <body>
         <span id = "pane">
             <input id = "coun" value="IN" />
-            <button id  = "getter" onclick="main()">Get!</button>
+            <button id  = "getter" onclick="main()" onload="main()" >Get!</button>
         </span>
         
         <div id = "output">
 
         </div>
-        <img src="icon.png" alt="Sorry, Here a icon should have been here" />
+        
         <script src="app.js"></script>
+        <footer class="footer">
+            Open Source Code by <a href="https://github.com/rishit-khandelwal">github/rishit-khandelwal</a>
+            <br>
+            Check the source @ <a href="https://github.com/rishit-khandelwal/covid-app/">github/rishit-khandelwal/covid-app</a>
+        </footer>
     </body>
 </html>

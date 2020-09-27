@@ -6,23 +6,21 @@ function main() {
             resp.json()
                 .then( (x) => {
                         if (x['error']) {
-                            output.innerHTML = "Oh No! Country not found"
+                            output.innerHTML = "Oh No! Country not found<br>Try Blanking the inputs for getting valid inputs. PROTIP: You also get an ordered list"
                             return;
                         }
 
                         console.log(x)
                         if (x[0]) {
-                            output.innerHTML += "Try These: <br><ol>"
+                            output.innerHTML = ""
+                            output.innerHTML += "Try These: <br>"
                             let m = 0;
                             for (let country of x) {
                                 m++;
-                                pad = " "
-                                if (m < 10) {
-                                    pad = "  "
-                                }
-                                output.innerHTML += `<li>${m}.${pad}${country['country']}</li>`
+                                var pad = ' '
+                                output.innerHTML += `${m}.${pad}${country['country']}<br>`
                             }
-                            output.innerHTML += "</ol>"
+                            
                             return
                         }
                         
