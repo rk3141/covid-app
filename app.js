@@ -14,6 +14,7 @@ function main() {
                         if (x[0]) {
                             output.innerHTML = ""
                             output.innerHTML += "Try These: <br>"
+                            document.getElementById('foot').style.opacity = '0';
                             let m = 0;
                             for (let country of x) {
                                 m++;
@@ -24,6 +25,7 @@ function main() {
                             return
                         }
                         
+                        document.getElementById('foot').style.opacity = '1';
 
                         output.innerText = ""
                         reports = x['cases']
