@@ -29,21 +29,17 @@
             }
 
             .footer {
-                position: absolute;
-                margin-top: calc(100vh - 3rem);
-                z-index: 10;
+                margin-top: calc(100vh - 5.5rem);
+                /* z-index: 10; */
             }
 
             @media only screen and (max-width: 600px) {
                 #getter:focus, #getter, #getter:hover {
-                    /* font-size: 14px; */
                     font-weight: bold;
                 }
 
                 .footer {
-                    position: absolute;
-                    margin-top: calc(100vh - 7rem);
-                    z-index: 10;
+                    margin-top: calc(100vh - 11.5rem);
                 }
             }
 
@@ -70,17 +66,14 @@
             }
 
             #output {
-                margin-top: 50px;
-                position: absolute;
-                z-index: 10;
+                margin-top: 50px;                
             }
 
-            #pane {
-                position: absolute;
-                z-index: 10;
-            }
 
-            
+            a, a:active, a:visited {
+                color: blue;
+                text-decoration: none;
+            }
         </style>
 
     </head>
@@ -96,9 +89,9 @@
         
         <script src="app.js"></script>
         <footer class="footer">
-            Open Source Code by <a href="https://github.com/rishit-khandelwal">github/rishit-khandelwal</a>
+            <b>Open Source Code</b> by <a href="https://github.com/rishit-khandelwal">github/rishit-khandelwal</a> under <b>MIT License</b>
             <br>
-            Check the source @ <a href="https://github.com/rishit-khandelwal/covid-app/">github/rishit-khandelwal/covid-app</a>
+            <b>Check the source</b> @ <a href="https://github.com/rishit-khandelwal/covid-app/">github/rishit-khandelwal/covid-app</a>
         </footer>
     </body>
 </html>
