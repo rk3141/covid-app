@@ -33,7 +33,7 @@ function dofetch(country) {
                                     r => {
                                         country = r['name']
                                         output.innerText = ""
-                                        
+
                                         reports = x['cases']
                                         recover = x['recovered']
                                         deaths = x['deaths']
