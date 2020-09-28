@@ -95,8 +95,10 @@ function main() {
                                         response => [
                                             response.json().then(
                                                 json => {
-                                                    code = json[0]["alpha2Code"];
-                                                    if (!code) {
+                                                    try {
+                                                        code = json[0]["alpha2Code"];
+                                                    }
+                                                    catch {
                                                         output.innerHTML = "Oh No! Country not found!"
                                                         return;
                                                     }
