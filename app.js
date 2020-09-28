@@ -8,8 +8,10 @@ function dofetch(country) {
                             output.innerHTML = "Oh No! Country not found<br>Try Blanking the inputs for getting valid inputs. PROTIP: You also get an ordered list"
                             return;
                         }
-
-                        if (x[0]) {
+                        
+                        console.log(x)
+                        
+                        if (x == '' || x[0]) {
                             output.innerHTML = ""
                             output.innerHTML += "Try These: <br>"
                             document.getElementById('foot').style.opacity = '0';
@@ -72,7 +74,8 @@ function main() {
         country = document.getElementById('coun').value
         
         console.log(country)
-            if (country.length != 2) {
+            
+            if (country.length != 2 && country.length != 0 ) {
                 fetch(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`).then(
                     res => {
                         res.json().then (
@@ -112,7 +115,8 @@ function main() {
                 )
                 return;
             }
-        
+            
+
         
             dofetch(country)
 }
