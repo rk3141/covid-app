@@ -1,16 +1,14 @@
 var output = document.getElementById("output")
 
 function dofetch(country) {
-fetch(`https://covid19-api.org/api/status/${country}`)
-        .then((resp) => {
-            resp.json()
-                .then( (x) => {
+        try {
+            fetch(`https://covid19-api.org/api/status/${country}`)
+            .then((resp) => { resp.json().then( (x) => {
                         if (x['error']) {
                             output.innerHTML = "Oh No! Country not found<br>Try Blanking the inputs for getting valid inputs. PROTIP: You also get an ordered list"
                             return;
                         }
 
-                        console.log(x)
                         if (x[0]) {
                             output.innerHTML = ""
                             output.innerHTML += "Try These: <br>"
@@ -61,9 +59,13 @@ fetch(`https://covid19-api.org/api/status/${country}`)
                         )
 
                         
+                    }
+                )
+            })
         }
-    )
-})
+        catch {
+            output.innerHTML = "Oh No! Country not found<br>Try Blanking the inputs for getting valid inputs. <b>PROTIP<b>: You also get an ordered list"
+        }
 }
 
 function main() {
@@ -79,7 +81,30 @@ function main() {
                                     output.innerHTML = "Oh No! Country not found!"
                                     return
                                 }
-                                var code = r[0]["alpha2Code"];
+                                try {
+                                    var code = r[0]["alpha2Code"];
+                                }
+                                catch {
+                                    var code = false;
+                                }
+                                if (!code) {
+                                    fetch(`https://restcountries.eu/rest/v2/name/${country}`).then(
+                                        response => [
+                                            response.json().then(
+                                                json => {
+                                                    code = json[0]["alpha2Code"];
+                                                    if (!code) {
+                                                        output.innerHTML = "Oh No! Country not found!"
+                                                        return;
+                                                    }
+
+                                                    dofetch(code)
+                                                }
+                                            )
+                                        ]
+                                    )
+                                    return;
+                                }
                                 dofetch(code)
                             }
                         )
