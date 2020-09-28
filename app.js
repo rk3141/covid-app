@@ -26,29 +26,40 @@ function main() {
                         }
                         
                         document.getElementById('foot').style.opacity = '1';
-
-                        output.innerText = ""
-                        reports = x['cases']
-                        recover = x['recovered']
-                        deaths = x['deaths']
-                        active = reports-(recover+deaths)
-                        lastUp = x['last_update']
-                        actPane = document.createElement("div")
-                        actPane.textContent = `Active in ${country}: ${active}`
                         
-                        recPane = document.createElement("div")
-                        recPane.textContent = `Recovered in ${country}: ${recover}`
-                        dPane = document.createElement("div")
-                        dPane.textContent = `Deaths in ${country}: ${deaths}`
+                        fetch(`https://restcountries.eu/rest/v2/alpha/${country}`).then(
+                            res => {
+                                res.json().then(
+                                    r => {
+                                        country = r['name']
+                                        output.innerText = ""
+                            reports = x['cases']
+                            recover = x['recovered']
+                            deaths = x['deaths']
+                            active = reports-(recover+deaths)
+                            lastUp = x['last_update']
+                            actPane = document.createElement("div")
+                            actPane.textContent = `Active in ${country}: ${active}`
+                                        
+                            recPane = document.createElement("div")
+                            recPane.textContent = `Recovered in ${country}: ${recover}`
+                            dPane = document.createElement("div")
+                            dPane.textContent = `Deaths in ${country}: ${deaths}`
+                                        
+                            luPane = document.createElement("div")
+                            luPane.classList.add("data")
+                            luPane.textContent = `Last Updated on ${lastUp}`
+                                        
+                            output.appendChild(actPane)
+                            output.appendChild(recPane)
+                                        output.appendChild(dPane)
+                                        output.appendChild(luPane)
+                                    }
+                                )
+                            }
+                        )
 
-                        luPane = document.createElement("div")
-                        luPane.classList.add("data")
-                        luPane.textContent = `Last Updated on ${lastUp}`
-
-                        output.appendChild(actPane)
-                        output.appendChild(recPane)
-                        output.appendChild(dPane)
-                        output.appendChild(luPane)
+                        
                     }
                 )
         })

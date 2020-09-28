@@ -4,11 +4,9 @@
         <title>COVID App - rishit-khandelwal</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
             * {
-                font-family: "Consolas", "Ubuntu", sans-serif;
-            }
-            #output {
-                font-family: "Consolas", "Ubuntu", sans-serif;
+                font-family: 'Epilogue', "Consolas", "Ubuntu", sans-serif;
             }
 
             #getter, #coun {
@@ -20,8 +18,8 @@
 
             #getter:focus, #getter, #getter:hover{
                 border: none;
-                font-family: "Consolas", "Ubuntu", sans-serif;
-                background-color: black;
+                
+                background-color: #3998F7;
                 color: white;
                 font-weight: bold;
                 padding-left: 10px;
@@ -36,6 +34,7 @@
             @media only screen and (max-width: 600px) {
                 #getter:focus, #getter, #getter:hover {
                     font-weight: bold;
+                    border: none;
                 }
 
                 .footer {
@@ -45,10 +44,11 @@
 
             #coun {
                 border-width: 2px;
-                border-right-color:  #333;
-                border-left-color:   #333;
-                border-top-color:    #333;
-                border-bottom-color: #333;
+                color: #FAB914;
+                border-right-color:  #3998F7;
+                border-left-color:   #3998F7;
+                border-top-color:    #3998F7;
+                border-bottom-color: #3998F7;
             }
 
             #pane {
@@ -68,7 +68,7 @@
             #output {
                 margin-top: 20px;
                 position: absolute;
-
+                color: #2C64FA;
             }
 
             .footer {
@@ -79,6 +79,22 @@
             a, a:active, a:visited {
                 color: blue;
                 text-decoration: none;
+            }
+
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: rgba(0,0,0,0);
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #888;
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
             }
         </style>
 
