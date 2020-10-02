@@ -1,1 +1,1 @@
-node serve/src/app.js port 8080
+node.exe serve/src/app.js port 8080

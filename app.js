@@ -24,14 +24,16 @@ function dofetch(country) {
                             
                             return
                         }
-                        
-                        document.getElementById('foot').style.opacity = '1';
+                        try {
+                            document.getElementById('foot').style1.opacity = '1';
+                        } catch {}
                         
                         fetch(`https://restcountries.eu/rest/v2/alpha/${country}`).then(
                             res => {
                                 res.json().then(
                                     r => {
                                         country = r['name']
+                                        
                                         output.innerText = ""
 
                                         reports = x['cases']
@@ -51,10 +53,11 @@ function dofetch(country) {
                                         luPane.classList.add("data")
                                         luPane.textContent = `Last Updated on ${lastUp}`
                                         
-                            output.appendChild(actPane)
-                            output.appendChild(recPane)
+                                        output.appendChild(actPane)
+                                        output.appendChild(recPane)
                                         output.appendChild(dPane)
                                         output.appendChild(luPane)
+                                        drawg(country,r["alpha2Code"]);
                                     }
                                 )
                             }
@@ -121,4 +124,46 @@ function main() {
 
         
             dofetch(country)
+}
+
+async function drawg(name,code) {
+    var ctx = document.getElementById('chart').getContext('2d');
+
+    if (window.innerWidth < 600) {
+        return
+    }
+    var resp = await fetch(`https://covid19-api.org/api/timeline/${code}`)
+    resp.text().then(
+        d => {
+            var labels = [];
+            var data = []
+            var p = JSON.parse(d)
+            for (let item of p) {
+                labels.push(item["last_update"])
+                data.push(item["cases"])
+            }
+            
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+                // The data for our dataset
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: name,
+                        backgroundColor: 'rgb(255, 200, 132)',
+                        borderColor: 'rgb(255, 200, 132)',
+                        data: data.reverse()
+                    }]
+                },
+                // Configuration options go here
+                options: {
+                    labels: {
+                        display: false,
+                    }
+                }
+            });
+        }
+    )
+    
 }

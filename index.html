@@ -26,11 +26,6 @@
                 padding-right: 10px;
             }
 
-            .footer {
-                margin-top: calc(100vh - 5.5rem);
-                /* z-index: 10; */
-            }
-
             @media only screen and (max-width: 600px) {
                 #getter:focus, #getter, #getter:hover {
                     font-weight: bold;
@@ -38,13 +33,22 @@
                 }
 
                 .footer {
-                    margin-top: calc(100vh - 11.5rem);
+                    margin-top: calc(100vh - 11rem);
+                }
+
+                #chart {
+                    position: fixed;
+                    z-index: 80;
+                    display: none;
                 }
             }
 
             @media only screen and (min-width: 600px) {
                 #coun {
                     width: calc(100vw - 4rem - 50px);
+                }
+                .footer {
+                    margin-top: calc(100vh - 15rem); /* Desktops */ 
                 }
             }
 
@@ -130,8 +134,11 @@
             <br>
             All the valid codes for countries are available in that list.
         </div>
-        
+        <canvas id="chart" style="display: block;"></canvas>
+
         <script src="app.js"></script>
+        <script src="Chart.min.js"></script>
+
         <footer id="foot" class="footer">
             <b>Open Source Code</b> by <a href="https://github.com/rishit-khandelwal">github/rishit-khandelwal</a> under <b>MIT License</b>
             <br>
