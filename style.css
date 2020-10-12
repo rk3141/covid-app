@@ -1,0 +1,104 @@
+    @import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
+* {
+    font-family: 'Epilogue', "Consolas", "Ubuntu", sans-serif;
+}
+
+#getter,
+#coun {
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+#getter:focus,
+#getter,
+#getter:hover {
+    border: none;
+    width: 4rem;
+    background-color: #3998F7;
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    #getter:focus,
+    #getter,
+    #getter:hover {
+        font-weight: bold;
+        border: none;
+    }
+    .footer {
+        margin-top: calc(100vh - 11rem);
+    }
+    #chart {
+        position: fixed;
+        z-index: 80;
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #coun {
+        width: calc(100vw - 4rem - 50px);
+    }
+    .footer {
+        margin-top: calc(100vh - 15rem);
+        /* Desktops */
+    }
+    #chart {
+        margin-top: 5vw;
+    }
+    #getter:focus,
+    #getter:hover {
+        background-color: #2C64FA;
+    }
+    #coun {
+        border-width: 2px;
+        color: #FAB914;
+        padding-left: 8px;
+        border-right-color: #3998F7;
+        border-left-color: #3998F7;
+        border-top-color: #3998F7;
+        border-bottom-color: #3998F7;
+    }
+    #pane {
+        display: flexbox;
+    }
+    .data {
+        font-size: 13px;
+        padding-top: 6px;
+        font-weight: 100;
+    }
+    body * {
+        z-index: 0;
+    }
+    #output {
+        margin-top: 20px;
+        position: absolute;
+        color: #2C64FA;
+    }
+    .footer {
+        position: absolute;
+        z-index: 100;
+    }
+    a,
+    a:active,
+    a:visited {
+        color: blue;
+        text-decoration: none;
+    }
+     ::-webkit-scrollbar {
+        width: 8px;
+    }
+     ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+    }
+     ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+     ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
