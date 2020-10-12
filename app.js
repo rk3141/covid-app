@@ -74,7 +74,7 @@ function dofetch(country) {
 }
 
 function main() {
-        country = document.getElementById('coun').value
+         country = document.getElementById('coun').value
         
         console.log(country)
             
@@ -151,8 +151,8 @@ async function drawg(name,code) {
                     labels: labels,
                     datasets: [{
                         label: name,
-                        backgroundColor: 'rgb(255, 200, 132)',
-                        borderColor: 'rgb(255, 200, 132)',
+                        backgroundColor: "rgb(255,220,0)",
+                        borderColor:     "rgb(255,220,0)",
                         data: data.reverse()
                     }]
                 },
