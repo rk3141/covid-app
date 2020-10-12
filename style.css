@@ -1,4 +1,4 @@
-    @import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
 * {
     font-family: 'Epilogue', "Consolas", "Ubuntu", sans-serif;
 }
@@ -45,12 +45,13 @@
         width: calc(100vw - 4rem - 50px);
     }
     .footer {
-        margin-top: calc(100vh - 15rem);
+        margin-top: calc(100vh - 18.5rem);
         /* Desktops */
     }
     #chart {
         margin-top: 5vw;
     }
+}
     #getter:focus,
     #getter:hover {
         background-color: #2C64FA;
@@ -82,7 +83,7 @@
     }
     .footer {
         position: absolute;
-        z-index: 100;
+        z-index: 10;
     }
     a,
     a:active,
@@ -90,15 +91,16 @@
         color: blue;
         text-decoration: none;
     }
-     ::-webkit-scrollbar {
-        width: 8px;
-    }
-     ::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, 0);
-    }
-     ::-webkit-scrollbar-thumb {
-        background: #888;
-    }
-     ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+}
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,4 +1,5 @@
 var output = document.getElementById("output")
+document.getElementById("coun").focus();
 
 function dofetch(country) {
         try {
@@ -26,7 +27,8 @@ function dofetch(country) {
                         }
                         try {
                             document.getElementById('foot').style1.opacity = '1';
-                        } catch {}
+                        }
+                         catch {}
                         
                         fetch(`https://restcountries.eu/rest/v2/alpha/${country}`).then(
                             res => {
@@ -135,6 +137,7 @@ async function drawg(name,code) {
     var resp = await fetch(`https://covid19-api.org/api/timeline/${code}`)
     resp.text().then(
         d => {
+            document.getElementById('foot').style.opacity = '0';
             var labels = [];
             var data = []
             var p = JSON.parse(d)
@@ -142,6 +145,7 @@ async function drawg(name,code) {
                 labels.push(item["last_update"])
                 data.push(item["cases"])
             }
+            scrollBy(0,100);
             
             var chart = new Chart(ctx, {
                 // The type of chart we want to create
